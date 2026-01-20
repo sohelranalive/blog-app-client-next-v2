@@ -29,7 +29,8 @@ import {
 } from "@/components/ui/sidebar";
 import { adminRoute } from "@/routes/adminRoutes";
 import { userRoute } from "@/routes/userRoutes";
-import { Route } from "@/app/types";
+import { Route } from "@/types";
+import { Roles } from "@/constants/roles";
 
 // This is sample data.
 // const data = {
@@ -58,10 +59,10 @@ export function AppSidebar({
   };
 
   switch (user.role) {
-    case "admin":
+    case Roles.admin:
       data = adminRoute;
       break;
-    case "user":
+    case Roles.user:
       data = userRoute;
       break;
     default:

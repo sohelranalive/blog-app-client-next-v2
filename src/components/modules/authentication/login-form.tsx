@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
+import { env } from "@/env";
 
 export function LoginForm({
   className,
@@ -25,7 +26,7 @@ export function LoginForm({
   const handleGoogleLogIn = async () => {
     const data = await authClient.signIn.social({
       provider: "google",
-      callbackURL: "http://localhost:3000/",
+      callbackURL: "http://localhost:3000",
     });
     console.log(data);
   };

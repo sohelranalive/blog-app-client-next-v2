@@ -9,17 +9,17 @@
 //   },
 // ];
 
-import { Route } from "../app/types";
+import { Route } from "../types";
 
 export const userRoute: Route = {
   projects: [
     {
       name: "Write Blog",
-      url: "/dashboard",
+      url: "/dashboard/write-blog",
     },
     {
       name: "Manage Blog",
-      url: "/admin-dashboard",
+      url: "/dashboard/manage-blog",
     },
   ],
 };

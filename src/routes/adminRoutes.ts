@@ -9,17 +9,17 @@
 //   },
 // ];
 
-import { Route } from "../app/types";
+import { Route } from "../types";
 
 export const adminRoute: Route = {
   projects: [
     {
-      name: "User Dashboard",
-      url: "/dashboard",
+      name: "Analytics",
+      url: "/admin-dashboard/analytics",
     },
     {
-      name: "Admin Dashboard",
-      url: "/admin-dashboard",
+      name: "Statistics",
+      url: "/admin-dashboard/statistics",
     },
   ],
 };
