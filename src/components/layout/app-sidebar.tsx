@@ -27,8 +27,8 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { adminRoute } from "@/app/routes/adminRoutes";
-import { userRoute } from "@/app/routes/userRoutes";
+import { adminRoute } from "@/routes/adminRoutes";
+import { userRoute } from "@/routes/userRoutes";
 import { Route } from "@/app/types";
 
 // This is sample data.

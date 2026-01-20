@@ -1,4 +1,4 @@
-// export const adminRoute = [
+// export const userRoute = [
 //   {
 //     name: "User Dashboard",
 //     url: "/dashboard",
@@ -9,16 +9,16 @@
 //   },
 // ];
 
-import { Route } from "../types";
+import { Route } from "../app/types";
 
-export const adminRoute: Route = {
+export const userRoute: Route = {
   projects: [
     {
-      name: "User Dashboard",
+      name: "Write Blog",
       url: "/dashboard",
     },
     {
-      name: "Admin Dashboard",
+      name: "Manage Blog",
       url: "/admin-dashboard",
     },
   ],
