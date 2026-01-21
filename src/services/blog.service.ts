@@ -1,12 +1,45 @@
 import { env } from "@/env";
 import { error } from "console";
+import { url } from "inspector";
+import { Key } from "lucide-react";
+import { ur } from "zod/v4/locales";
 
 const APU_URL = env.API_URL;
 
+interface getBlogsParam {
+  isFeatured?: boolean;
+  search: string;
+}
+
+interface serviceOption {
+  cache?: RequestCache;
+  revalidate?: number;
+}
+
 export const blogService = {
-  getBlogPosts: async function () {
+  getBlogPosts: async function (params: getBlogsParam, options: serviceOption) {
     try {
-      const res = await fetch(`${APU_URL}/post`);
+      const url = new URL(`${APU_URL}/post`);
+
+      if (params) {
+        Object.entries(params).forEach(([key, value]) => {
+          if (value !== undefined && value !== null && value !== "") {
+            url.searchParams.append(key, value);
+          }
+        });
+      }
+
+      const config: RequestInit = {};
+
+      if (options?.cache) {
+        config.cache = options.cache;
+      }
+
+      if (options?.revalidate) {
+        config.next = { revalidate: options.revalidate };
+      }
+
+      const res = await fetch(url.toString(), config);
       const data = await res.json();
 
       // example

@@ -1,16 +1,23 @@
-import { authClient } from "@/lib/auth-client";
+import { SimplePostCard } from "@/components/layout/SimplePostCard";
 import { blogService } from "@/services/blog.service";
-import { userService } from "@/services/user.services";
-import { cookies } from "next/headers";
-import Image from "next/image";
+import { BlogPost } from "@/types";
 
 export default async function Home() {
-  const { data } = await blogService.getBlogPosts();
-  console.log(data);
+  const { data } = await blogService.getBlogPosts(
+    {
+      isFeatured: false,
+      search: "",
+    },
+    {
+      cache: "no-store",
+    },
+  );
 
   return (
-    <div>
-      <h1>This is home</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+      {data.data.data.map((post: BlogPost) => (
+        <SimplePostCard key={post.id} post={post} />
+      ))}
     </div>
   );
 }
