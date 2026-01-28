@@ -18,7 +18,7 @@ export function SimplePostCard({ post }: SimplePostCardProps) {
   return (
     <div className="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100">
       {/* Thumbnail */}
-      <div className="relative w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+      <div className="relative w-full h-48 bg-linear-to-br from-gray-100 to-gray-200 overflow-hidden">
         {post.thumbnail ? (
           <img
             src={post.thumbnail}
@@ -107,7 +107,7 @@ export function SimplePostCard({ post }: SimplePostCardProps) {
           </div>
 
           <Link
-            href={`/blog/${post.id}`}
+            href={`/blogs/${post.id}`}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
           >
             View Details

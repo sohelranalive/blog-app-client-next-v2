@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/sidebar";
 import { Roles } from "@/constants/roles";
 import { userService } from "@/services/user.services";
-import { use } from "react";
 
 export default async function DashboardLayout({
   admin,
@@ -25,10 +24,10 @@ export default async function DashboardLayout({
   admin: React.ReactNode;
   user: React.ReactNode;
 }) {
-  const { data } = await userService.getSession();
+  // const { data } = await userService.getSession();
 
   const userInfo = {
-    role: data.user.role,
+    role: "admin",
   };
 
   return (

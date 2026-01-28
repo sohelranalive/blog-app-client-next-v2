@@ -1,4 +1,3 @@
-import { BlogPost } from "@/app/(commonLayout)/page";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { BlogPost } from "@/types";
 
 type PostCardProps = {
   post: BlogPost;

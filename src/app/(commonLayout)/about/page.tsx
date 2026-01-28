@@ -1,9 +1,23 @@
-export const dynamic = "force-dynamic";
+"use client";
 
-export default async function AboutPage() {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
+import { getBlogs } from "@/actions/blog.actions";
+import { useEffect, useState } from "react";
+import { any } from "zod";
 
-  // throw new Error("Something went wrong");
+export default function AboutPage() {
+  // await new Promise((resolve) => setTimeout(resolve, 4000));
+
+  const [data, setData] = useState();
+  const [error, setError] = useState<{ message: string } | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const { data, error } = await getBlogs();
+
+      setData(data);
+      setError(error);
+    })();
+  }, []);
 
   return (
     <div>
